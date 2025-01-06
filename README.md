@@ -1,6 +1,6 @@
-# MultiPurpose Qr,Barcode Scanner Using Google Mlkit
-# Using:
-CleanArchitecture
-Dagger-Hilt
-MVVM
-Jetpack-Compose
+# MultiPurpose Barcode Scanner Using Google ML-kit
+I Used:
+- CleanArchitecture
+- Dagger-Hilt
+- MVVM
+- Jetpack-Compose
