@@ -14,7 +14,7 @@
         android:theme="@style/Theme.QrCodeApp"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.view.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.QrCodeApp">
@@ -28,7 +28,7 @@
 
         <meta-data
             android:name="com.google.mlkit.vision.DEPENDENCIES"
-            android:value="barcode" />
+            android:value="barcode_ui"/>
 
     </application>
 

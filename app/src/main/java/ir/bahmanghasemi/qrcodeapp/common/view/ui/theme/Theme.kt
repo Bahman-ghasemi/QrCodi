@@ -1,6 +1,5 @@
-package ir.bahmanghasemi.qrcodeapp.ui.theme
+package ir.bahmanghasemi.qrcodeapp.common.view.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
