@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "ir.bahmanghasemi.qrcodeapp"
-    compileSdk = 35
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "ir.bahmanghasemi.qrcodeapp"
@@ -31,12 +31,12 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
     }
-    buildToolsVersion = "35.0.0"
+    buildToolsVersion = "34.0.0"
 }
 
 dependencies {
@@ -53,6 +53,8 @@ dependencies {
     // Dagger-Hilt
     implementation (libs.hilt.android)
     kapt (libs.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
+    kapt(libs.androidx.hilt.compiler)
 
     // QrCode Scanner
     implementation(libs.play.services.code.scanner)

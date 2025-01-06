@@ -1,4 +1,4 @@
-package ir.bahmanghasemi.qrcodeapp.ui.theme
+package ir.bahmanghasemi.qrcodeapp.common.view.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
