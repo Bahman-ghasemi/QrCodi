@@ -80,5 +80,6 @@ truth = { module = "com.google.truth:truth", version.ref = "truthVersion" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-kotlin-kapt = { id = "kotlin-kapt" }
+#kotlin-kapt = { id = "kotlin-kapt" }
+ksp = { id = "com.google.devtools.ksp"}
 hilt-plugin = { id = "com.google.dagger.hilt.android"}

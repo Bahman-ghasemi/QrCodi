@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.ksp)
     alias(libs.plugins.hilt.plugin)
 }
 
@@ -27,11 +27,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
@@ -60,19 +60,18 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
 
     // Dagger-Hilt
-    implementation (libs.hilt.android)
-    kapt (libs.hilt.compiler)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
-    kapt(libs.androidx.hilt.compiler)
+
 
     // Room
     implementation(libs.androidx.room.runtime)
-    kapt(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
 
     // Navigation
     implementation(libs.androidx.navigation.compose)
-
 
     // QrCode Scanner
     implementation(libs.play.services.code.scanner)
@@ -89,20 +88,16 @@ dependencies {
     testImplementation(libs.junit)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    testImplementation (libs.hilt.android.testing)
-    testAnnotationProcessor (libs.hilt.compiler)
-    testImplementation (libs.truth)
+    testImplementation(libs.hilt.android.testing)
+    testAnnotationProcessor(libs.hilt.compiler)
+    testImplementation(libs.truth)
 
     // Instrumental Testing
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
-    androidTestImplementation (libs.hilt.android.testing)
-    androidTestAnnotationProcessor (libs.hilt.compiler)
-    androidTestImplementation (libs.truth)
-}
-
-kapt {
-    correctErrorTypes = true
+    androidTestImplementation(libs.hilt.android.testing)
+    androidTestAnnotationProcessor(libs.hilt.compiler)
+    androidTestImplementation(libs.truth)
 }
