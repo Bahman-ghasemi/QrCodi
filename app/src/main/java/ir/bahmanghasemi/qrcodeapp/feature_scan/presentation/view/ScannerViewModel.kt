@@ -1,9 +1,9 @@
-package ir.bahmanghasemi.qrcodeapp.presentation.view
+package ir.bahmanghasemi.qrcodeapp.feature_scan.presentation.view
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import ir.bahmanghasemi.qrcodeapp.domain.repository.ScannerRepository
+import ir.bahmanghasemi.qrcodeapp.feature_scan.domain.repository.ScannerRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest

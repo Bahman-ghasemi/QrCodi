@@ -1,8 +1,8 @@
-package ir.bahmanghasemi.qrcodeapp.data.repository
+package ir.bahmanghasemi.qrcodeapp.feature_scan.data.repository
 
 import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanner
-import ir.bahmanghasemi.qrcodeapp.domain.repository.ScannerRepository
+import ir.bahmanghasemi.qrcodeapp.feature_scan.domain.repository.ScannerRepository
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow

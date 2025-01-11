@@ -1,4 +1,4 @@
-package ir.bahmanghasemi.qrcodeapp.presentation.view
+package ir.bahmanghasemi.qrcodeapp
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import dagger.hilt.android.AndroidEntryPoint
 import ir.bahmanghasemi.qrcodeapp.common.view.ui.theme.QrCodeAppTheme
+import ir.bahmanghasemi.qrcodeapp.feature_scan.presentation.view.ScannerViewModel
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

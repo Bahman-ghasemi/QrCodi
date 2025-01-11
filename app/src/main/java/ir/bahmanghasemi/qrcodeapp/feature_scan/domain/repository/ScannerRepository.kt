@@ -1,4 +1,4 @@
-package ir.bahmanghasemi.qrcodeapp.domain.repository
+package ir.bahmanghasemi.qrcodeapp.feature_scan.domain.repository
 
 import kotlinx.coroutines.flow.Flow
 
