@@ -19,6 +19,7 @@ hiltNavigationCompose = "1.2.0"
 roomRuntime = "2.6.1"
 navigationCompose = "2.8.5"
 playServicesCodeScanner = "16.1.0"
+customQrGenerator = "2.0.0-alpha01"
 kotlinxSerializationJson = "1.8.0"
 kotlinxDatetime = "0.6.1"
 desugar_jdk_libs = "2.1.4"
@@ -64,8 +65,10 @@ androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomRunt
 # Navigation
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 
-# Google Scanner
+# Qr Scanner
 play-services-code-scanner = { module = "com.google.android.gms:play-services-code-scanner", version.ref = "playServicesCodeScanner" }
+# Qr Generator
+#custom-qr-generator = { module = "com.github.alexzhirkevich:custom-qr-generator", version.ref = "customQrGenerator" }
 
 # Serialization
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }

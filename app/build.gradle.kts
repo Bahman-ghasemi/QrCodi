@@ -64,7 +64,6 @@ dependencies {
     ksp(libs.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
 
-
     // Room
     implementation(libs.androidx.room.runtime)
     ksp(libs.androidx.room.compiler)
@@ -75,6 +74,9 @@ dependencies {
 
     // QrCode Scanner
     implementation(libs.play.services.code.scanner)
+//    implementation (libs.custom.qr.generator)
+    implementation ("com.github.alexzhirkevich:custom-qr-generator:2.0.0-alpha01")
+    implementation ("com.google.accompanist:accompanist-drawablepainter:0.37.0")
 
     // Kotlinx Serialization
     implementation(libs.kotlinx.serialization.json)
