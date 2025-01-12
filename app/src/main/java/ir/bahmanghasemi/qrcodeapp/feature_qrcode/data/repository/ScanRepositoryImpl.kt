@@ -3,6 +3,8 @@ package ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.repository
 import com.github.alexzhirkevich.customqrgenerator.QrData
 import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanner
+import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.CalendarEvent
+import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.ContactInfo
 import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.DriverLicense
 import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.isGreaterThan
 import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.mapToQrWifiAuthentication
@@ -60,14 +62,14 @@ class ScanRepositoryImpl @Inject constructor(
                 val urls = barcode.contactInfo?.urls
                 val addresses = barcode.contactInfo?.addresses
 
-                QrData.VCard(
-                    title = title,
+                ContactInfo(
                     name = "${name?.first} ${name?.middle} ${name?.last}",
-                    company = organization,
-                    email = emails?.firstOrNull()?.address,
-                    phoneNumber = phones?.firstOrNull()?.number,
-                    address = addresses?.firstOrNull()?.addressLines.contentToString(),
-                    website = urls?.firstOrNull()
+                    title = title,
+                    organization = organization,
+                    emails = emails?.map { it.address } ?: emptyList(),
+                    phones = phones?.map { it.number } ?: emptyList(),
+                    urls = urls ?: emptyList(),
+                    addresses = addresses?.map { it.addressLines.contentToString() } ?: emptyList(),
                 )
             }
 
@@ -111,16 +113,22 @@ class ScanRepositoryImpl @Inject constructor(
             }
 
             Barcode.TYPE_CALENDAR_EVENT -> {
-                val start = barcode.calendarEvent?.start
-                val end = barcode.calendarEvent?.end
-                val status = barcode.calendarEvent?.status
                 val summary = barcode.calendarEvent?.summary
+                val description = barcode.calendarEvent?.description
                 val location = barcode.calendarEvent?.location
+                val organizer = barcode.calendarEvent?.organizer
+                val startDate = barcode.calendarEvent?.start?.rawValue
+                val endDate = barcode.calendarEvent?.end?.rawValue
+                val status = barcode.calendarEvent?.status
 
-                QrData.Event(
-                    start = start.toString(),
-                    end = end.toString(),
-                    summary = summary
+                CalendarEvent(
+                    summary = summary,
+                    description = description,
+                    location = location,
+                    organizer = organizer,
+                    startDate = startDate,
+                    endDate = endDate,
+                    status = status,
                 )
             }
 
