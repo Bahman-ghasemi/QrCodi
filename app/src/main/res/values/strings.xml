@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">QrCode App</string>
+    <string name="scan_icon">Scan Icon</string>
+    <string name="image">Image</string>
+    <string name="flashlight">FlashLight</string>
+    <string name="barcode">Barcode</string>
+    <string name="scan_barcode">Scan Barcode</string>
+    <string name="barcode_history">Barcode History</string>
+    <string name="generate_qrcode">Generate QrCode</string>
+    <string name="setting">Setting</string>
 </resources>
