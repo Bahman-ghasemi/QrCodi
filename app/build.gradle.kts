@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt.plugin)
 }
@@ -74,9 +75,8 @@ dependencies {
 
     // QrCode Scanner
     implementation(libs.play.services.code.scanner)
-//    implementation (libs.custom.qr.generator)
-    implementation ("com.github.alexzhirkevich:custom-qr-generator:2.0.0-alpha01")
-    implementation ("com.google.accompanist:accompanist-drawablepainter:0.37.0")
+    implementation (libs.custom.qr.generator)
+    implementation (libs.google.accompanist.drawablepainter)
 
     // Kotlinx Serialization
     implementation(libs.kotlinx.serialization.json)

@@ -1,8 +1,10 @@
 [versions]
+accompanistDrawablepainterVersion = "0.37.0"
 agp = "8.7.3"
 
 kotlin = "2.1.20-Beta1"
 kspVersion = "2.1.20-Beta1-1.0.29"
+serialization-version = "2.1.0"
 
 coreKtx = "1.15.0"
 junit = "4.13.2"
@@ -19,7 +21,7 @@ hiltNavigationCompose = "1.2.0"
 roomRuntime = "2.6.1"
 navigationCompose = "2.8.5"
 playServicesCodeScanner = "16.1.0"
-customQrGenerator = "2.0.0-alpha01"
+customQrGeneratorVersion = "2.0.0-alpha01"
 kotlinxSerializationJson = "1.8.0"
 kotlinxDatetime = "0.6.1"
 desugar_jdk_libs = "2.1.4"
@@ -67,8 +69,10 @@ androidx-navigation-compose = { module = "androidx.navigation:navigation-compose
 
 # Qr Scanner
 play-services-code-scanner = { module = "com.google.android.gms:play-services-code-scanner", version.ref = "playServicesCodeScanner" }
+
 # Qr Generator
-#custom-qr-generator = { module = "com.github.alexzhirkevich:custom-qr-generator", version.ref = "customQrGenerator" }
+custom-qr-generator = { module = "com.github.alexzhirkevich:custom-qr-generator", version.ref = "customQrGeneratorVersion" }
+google-accompanist-drawablepainter = { module = "com.google.accompanist:accompanist-drawablepainter", version.ref = "accompanistDrawablepainterVersion" }
 
 # Serialization
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
@@ -84,5 +88,6 @@ truth = { module = "com.google.truth:truth", version.ref = "truthVersion" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-ksp = { id = "com.google.devtools.ksp", version.ref="kspVersion"}
-hilt-plugin = { id = "com.google.dagger.hilt.android"}
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "serialization-version" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
+hilt-plugin = { id = "com.google.dagger.hilt.android" }
