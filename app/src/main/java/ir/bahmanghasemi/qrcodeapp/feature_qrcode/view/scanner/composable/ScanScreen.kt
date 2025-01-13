@@ -35,7 +35,7 @@ import ir.bahmanghasemi.qrcodeapp.R
 import ir.bahmanghasemi.qrcodeapp.common.view.util.Connectivity
 import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.CalendarEvent
 import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.ContactInfo
-
+import java.time.ZonedDateTime
 
 @Composable
 @Preview(showBackground = true)
@@ -115,14 +115,14 @@ fun ScanComposable(
                                     putExtra(CalendarContract.Events.TITLE, it.summary)
                                     putExtra(CalendarContract.Events.EVENT_LOCATION, it.location)
                                     putExtra(CalendarContract.Events.DESCRIPTION, it.description)
-                                    /*putExtra(
+                                    putExtra(
                                         CalendarContract.EXTRA_EVENT_BEGIN_TIME,
-                                        ZonedDateTime.parse(it.start).toLocalDateTime().toString()
-                                    )*/
-                                    /*putExtra(
+                                        ZonedDateTime.parse(it.startDate).toLocalDateTime().toString()
+                                    )
+                                    putExtra(
                                         CalendarContract.EXTRA_EVENT_END_TIME,
-                                        ZonedDateTime.parse(it.end).toLocalDateTime().toString()
-                                    )*/
+                                        ZonedDateTime.parse(it.endDate).toLocalDateTime().toString()
+                                    )
                                 }
                                 context.startActivity(intent)
                             }

@@ -24,7 +24,7 @@ playServicesCodeScanner = "16.1.0"
 customQrGeneratorVersion = "2.0.0-alpha01"
 kotlinxSerializationJson = "1.8.0"
 kotlinxDatetime = "0.6.1"
-desugar_jdk_libs = "2.1.4"
+desugar_jdk_libsVersion = "2.1.4"
 truthVersion = "1.4.4"
 
 [libraries]
@@ -79,7 +79,7 @@ kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serializa
 
 # DateTime
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
-desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
+desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libsVersion" }
 
 # Truth
 truth = { module = "com.google.truth:truth", version.ref = "truthVersion" }

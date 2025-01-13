@@ -12,6 +12,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CardElevation
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
@@ -22,6 +25,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -81,61 +85,69 @@ fun AppNavigation(modifier: Modifier = Modifier, navHostController: NavHostContr
 
 
 @Composable
+@Preview(showBackground = true, showSystemUi = true)
 fun BottomBar() {
-    Column(
-        Modifier
+    Card(
+        modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp)
-            .clip(RoundedCornerShape(16.dp))
-            .background(Color.LightGray)
-            .padding(4.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(8.dp, alignment = Alignment.CenterVertically)
+            .padding(16.dp),
+        shape = RoundedCornerShape(24.dp),
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = 16.dp
+        ),
+        colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
-        Row(
+        Column(
             Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 8.dp)
-                .clip(RoundedCornerShape(16.dp))
-                .background(Color.Gray)
-                .padding(4.dp),
-            horizontalArrangement = Arrangement.SpaceAround,
-            verticalAlignment = Alignment.CenterVertically
+                .fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
         ) {
-            IconButton(onClick = {}) {
-                Icon(painter = painterResource(R.drawable.image), contentDescription = stringResource(R.string.image))
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 16.dp)
+                    .clip(RoundedCornerShape(24.dp))
+                    .background(Color(0xfff4f6f8))
+                    .padding(horizontal = 16.dp, vertical = 12.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                IconButton(onClick = {}) {
+                    Icon(painter = painterResource(R.drawable.image), contentDescription = stringResource(R.string.image))
+                }
+
+                IconButton(onClick = {}) {
+                    Icon(painter = painterResource(R.drawable.barcode), contentDescription = stringResource(R.string.barcode))
+                }
+
+                IconButton(onClick = {}) {
+                    Icon(painter = painterResource(R.drawable.flash_off), contentDescription = stringResource(R.string.flashlight))
+                }
             }
 
-            IconButton(onClick = {}) {
-                Icon(painter = painterResource(R.drawable.barcode), contentDescription = stringResource(R.string.barcode))
-            }
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(start = 12.dp, end = 12.dp, bottom = 12.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                IconButton(onClick = {}) {
+                    Icon(painter = painterResource(R.drawable.scan), contentDescription = stringResource(R.string.scan_barcode))
+                }
 
-            IconButton(onClick = {}) {
-                Icon(painter = painterResource(R.drawable.flash_off), contentDescription = stringResource(R.string.flashlight))
-            }
-        }
+                IconButton(onClick = {}) {
+                    Icon(painter = painterResource(R.drawable.time), contentDescription = stringResource(R.string.barcode_history))
+                }
 
-        Row(
-            Modifier
-                .fillMaxWidth()
-                .padding(4.dp),
-            horizontalArrangement = Arrangement.SpaceAround,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            IconButton(onClick = {}) {
-                Icon(painter = painterResource(R.drawable.scan), contentDescription = stringResource(R.string.scan_barcode))
-            }
+                IconButton(onClick = {}) {
+                    Icon(painter = painterResource(R.drawable.qrcode), contentDescription = stringResource(R.string.generate_qrcode))
+                }
 
-            IconButton(onClick = {}) {
-                Icon(painter = painterResource(R.drawable.time), contentDescription = stringResource(R.string.barcode_history))
-            }
-
-            IconButton(onClick = {}) {
-                Icon(painter = painterResource(R.drawable.qrcode), contentDescription = stringResource(R.string.generate_qrcode))
-            }
-
-            IconButton(onClick = {}) {
-                Icon(painter = painterResource(R.drawable.setting), contentDescription = stringResource(R.string.setting))
+                IconButton(onClick = {}) {
+                    Icon(painter = painterResource(R.drawable.setting), contentDescription = stringResource(R.string.setting))
+                }
             }
         }
     }

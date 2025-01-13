@@ -30,7 +30,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
-//        isCoreLibraryDesugaringEnabled = true
+        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = "17"
@@ -38,7 +38,7 @@ android {
     buildFeatures {
         compose = true
     }
-    buildToolsVersion = "35.0.0"
+
 }
 
 dependencies {
@@ -84,8 +84,7 @@ dependencies {
 
     // DateTime
     implementation(libs.kotlinx.datetime)
-    coreLibraryDesugaring(libs.desugar.jdk.libs)
-
+    coreLibraryDesugaring (libs.desugar.jdk.libs)
 
     // Unit Testing
     testImplementation(libs.junit)
