@@ -11,7 +11,11 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.android.scopes.ViewModelScoped
+import ir.bahmanghasemi.qrcodeapp.common.data.data_source.local.dao.HistoryDao
 import ir.bahmanghasemi.qrcodeapp.common.domain.use_case.QrUseCase
+import ir.bahmanghasemi.qrcodeapp.feature_history.data.repository.HistoryRepositoryImpl
+import ir.bahmanghasemi.qrcodeapp.feature_history.domain.repository.HistoryRepository
+import ir.bahmanghasemi.qrcodeapp.feature_history.domain.use_case.HistoryUseCase
 import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.repository.QrGeneratorRepositoryImpl
 import ir.bahmanghasemi.qrcodeapp.feature_qrcode.domain.repository.QrGeneratorRepository
 import ir.bahmanghasemi.qrcodeapp.feature_qrcode.domain.use_case.QrGeneratorUseCase
@@ -39,25 +43,33 @@ object ScanModule {
 
     @Provides
     @ViewModelScoped
-    fun provideScannerRepository(scanner:GmsBarcodeScanner): ScanRepository {
+    fun provideScannerRepository(scanner: GmsBarcodeScanner): ScanRepository {
         return ScanRepositoryImpl(scanner)
     }
 
     @Provides
     @ViewModelScoped
-    fun provideGenerateRepository(@ApplicationContext context: Context): QrGeneratorRepository{
+    fun provideGenerateRepository(@ApplicationContext context: Context): QrGeneratorRepository {
         return QrGeneratorRepositoryImpl(context)
+    }
+
+    @Provides
+    @ViewModelScoped
+    fun provideHistoryRepository(dao: HistoryDao): HistoryRepository {
+        return HistoryRepositoryImpl(dao)
     }
 
     @Provides
     @ViewModelScoped
     fun provideQrUseCase(
         scanRepository: ScanRepository,
-        generatorRepository: QrGeneratorRepository
+        generatorRepository: QrGeneratorRepository,
+        historyRepository: HistoryRepository
     ): QrUseCase {
         return QrUseCase(
             QrScanUseCase(scanRepository),
-            QrGeneratorUseCase(generatorRepository)
+            QrGeneratorUseCase(generatorRepository),
+            HistoryUseCase(historyRepository)
         )
     }
 }
