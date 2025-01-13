@@ -33,8 +33,8 @@ import androidx.compose.ui.unit.dp
 import com.github.alexzhirkevich.customqrgenerator.QrData
 import ir.bahmanghasemi.qrcodeapp.R
 import ir.bahmanghasemi.qrcodeapp.common.view.util.Connectivity
-import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.CalendarEvent
-import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.ContactInfo
+import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.scan_type.CalendarEvent
+import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.scan_type.ContactInfo
 import java.time.ZonedDateTime
 
 @Composable
