@@ -19,6 +19,7 @@ coroutineVersion = "1.10.1"
 hiltAndroid = "2.55"
 hiltNavigationCompose = "1.2.0"
 roomRuntime = "2.6.1"
+converterGsonVersion = "2.11.0"
 navigationCompose = "2.8.5"
 playServicesCodeScanner = "16.1.0"
 customQrGeneratorVersion = "2.0.0-alpha01"
@@ -63,6 +64,9 @@ hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", vers
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomRuntime" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomRuntime" }
+
+# Gson
+converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGsonVersion" }
 
 # Navigation
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }

@@ -15,12 +15,11 @@ import ir.bahmanghasemi.qrcodeapp.common.data.data_source.local.dao.HistoryDao
 import ir.bahmanghasemi.qrcodeapp.common.domain.use_case.QrUseCase
 import ir.bahmanghasemi.qrcodeapp.feature_history.data.repository.HistoryRepositoryImpl
 import ir.bahmanghasemi.qrcodeapp.feature_history.domain.repository.HistoryRepository
-import ir.bahmanghasemi.qrcodeapp.feature_history.domain.use_case.HistoryUseCase
 import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.repository.QrGeneratorRepositoryImpl
-import ir.bahmanghasemi.qrcodeapp.feature_qrcode.domain.repository.QrGeneratorRepository
-import ir.bahmanghasemi.qrcodeapp.feature_qrcode.domain.use_case.QrGeneratorUseCase
 import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.repository.ScanRepositoryImpl
+import ir.bahmanghasemi.qrcodeapp.feature_qrcode.domain.repository.QrGeneratorRepository
 import ir.bahmanghasemi.qrcodeapp.feature_qrcode.domain.repository.ScanRepository
+import ir.bahmanghasemi.qrcodeapp.feature_qrcode.domain.use_case.QrGeneratorUseCase
 import ir.bahmanghasemi.qrcodeapp.feature_qrcode.domain.use_case.QrScanUseCase
 
 @Module
@@ -64,12 +63,10 @@ object ScanModule {
     fun provideQrUseCase(
         scanRepository: ScanRepository,
         generatorRepository: QrGeneratorRepository,
-        historyRepository: HistoryRepository
     ): QrUseCase {
         return QrUseCase(
             QrScanUseCase(scanRepository),
-            QrGeneratorUseCase(generatorRepository),
-            HistoryUseCase(historyRepository)
+            QrGeneratorUseCase(generatorRepository)
         )
     }
 }
