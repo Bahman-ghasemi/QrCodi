@@ -1,4 +1,4 @@
-package ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model
+package ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.scan_type
 
 import com.github.alexzhirkevich.customqrgenerator.QrData
 

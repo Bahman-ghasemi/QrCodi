@@ -3,11 +3,11 @@ package ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.repository
 import com.github.alexzhirkevich.customqrgenerator.QrData
 import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanner
-import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.CalendarEvent
-import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.ContactInfo
-import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.DriverLicense
-import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.isGreaterThan
-import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.mapToQrWifiAuthentication
+import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.scan_type.CalendarEvent
+import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.scan_type.ContactInfo
+import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.scan_type.DriverLicense
+import ir.bahmanghasemi.qrcodeapp.common.view.util.isGreaterThan
+import ir.bahmanghasemi.qrcodeapp.common.view.util.mapToQrWifiAuthentication
 import ir.bahmanghasemi.qrcodeapp.feature_qrcode.domain.repository.ScanRepository
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
