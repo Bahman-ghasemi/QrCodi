@@ -8,7 +8,8 @@ import com.github.alexzhirkevich.customqrgenerator.QrData
 data class QrCodeEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
-    val type: QrData,
+    val type: QrType,
     val rawContent: String,
-    val extraData: String? = null
+    val extraData: String? = null,
+    val creationDate : Long = System.currentTimeMillis()
 )

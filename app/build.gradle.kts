@@ -71,6 +71,9 @@ dependencies {
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
 
+    // Gson
+    implementation(libs.converter.gson)
+
     // Navigation
     implementation(libs.androidx.navigation.compose)
 

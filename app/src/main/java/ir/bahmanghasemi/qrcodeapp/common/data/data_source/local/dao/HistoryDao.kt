@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface HistoryDao {
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(qrCode: QrCodeEntity)
 
