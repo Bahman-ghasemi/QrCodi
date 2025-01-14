@@ -1,4 +1,4 @@
-# MultiPurpose Barcode Scanner and Generator Using Google ML-kit
+# MultiPurpose Google Barcode Scanner | Generator
 I Used:
 - CleanArchitecture
 - Dagger-Hilt
