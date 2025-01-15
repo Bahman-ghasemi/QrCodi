@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 object HomeRoute
 
 @Serializable
-data class ScanRoute(val scanMode: ScanMode)
+object ScanRoute
 
 @Serializable
 object GenerationRoute

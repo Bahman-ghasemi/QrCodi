@@ -39,7 +39,8 @@ import java.time.ZonedDateTime
 
 @Composable
 @Preview(showBackground = true)
-fun ScanComposable(
+fun ScanScreen(
+    modifier: Modifier = Modifier,
     content: QrData? = null
 ) {
     val context = LocalContext.current

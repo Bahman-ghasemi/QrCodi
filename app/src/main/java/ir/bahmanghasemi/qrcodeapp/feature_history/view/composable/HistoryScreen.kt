@@ -1,6 +1,5 @@
 package ir.bahmanghasemi.qrcodeapp.feature_history.view.composable
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -31,7 +30,7 @@ import androidx.compose.ui.unit.dp
 import ir.bahmanghasemi.qrcodeapp.common.data.data_source.local.entity.QrCodeEntity
 
 @Composable
-fun HistoryScreen(qrCodes: List<QrCodeEntity>, ) {
+fun HistoryScreen(modifier: Modifier = Modifier, qrCodes: List<QrCodeEntity> = emptyList()) {
 
     var showBottomSheet by remember { mutableStateOf(false) }
     var selectedQr by remember { mutableStateOf<QrCodeEntity?>(null) }

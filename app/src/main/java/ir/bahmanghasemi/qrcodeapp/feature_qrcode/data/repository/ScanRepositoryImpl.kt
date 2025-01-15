@@ -1,13 +1,19 @@
 package ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.repository
 
+import android.content.Context
+import android.net.Uri
 import com.github.alexzhirkevich.customqrgenerator.QrData
+import com.google.android.gms.tasks.Tasks
+import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanner
+import com.google.mlkit.vision.common.InputImage
+import dagger.hilt.android.qualifiers.ApplicationContext
+import ir.bahmanghasemi.qrcodeapp.common.view.util.isGreaterThan
+import ir.bahmanghasemi.qrcodeapp.common.view.util.mapToQrWifiAuthentication
 import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.scan_type.CalendarEvent
 import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.scan_type.ContactInfo
 import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.scan_type.DriverLicense
-import ir.bahmanghasemi.qrcodeapp.common.view.util.isGreaterThan
-import ir.bahmanghasemi.qrcodeapp.common.view.util.mapToQrWifiAuthentication
 import ir.bahmanghasemi.qrcodeapp.feature_qrcode.domain.repository.ScanRepository
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
@@ -16,10 +22,11 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class ScanRepositoryImpl @Inject constructor(
+    private val context: Context,
     private val scanner: GmsBarcodeScanner
 ) : ScanRepository {
 
-    override fun startScan(): Flow<QrData?> {
+    override suspend fun startCameraScan(): Flow<QrData?> {
         return callbackFlow {
             scanner.startScan()
                 .addOnSuccessListener { barcode ->
@@ -29,6 +36,31 @@ class ScanRepositoryImpl @Inject constructor(
                     }
                 }
                 .addOnFailureListener { it.printStackTrace() }
+
+            awaitClose {
+
+            }
+        }
+    }
+
+    override suspend fun startPhotoScan(uri: Uri): Flow<QrData?> {
+        return callbackFlow {
+            try {
+                // Load the image from the provided URI
+                val inputImage = InputImage.fromFilePath(context, uri)
+                val scanner = BarcodeScanning.getClient()
+
+                // Process the image and wait for the result using Tasks.await
+                val barcodes = Tasks.await(scanner.process(inputImage))
+                val barcode = barcodes.firstOrNull()
+                barcode?.let {
+                    send(getBarcodeDetail(barcode))
+                } ?: send(null)
+            } catch (e: Exception) {
+                // Emit null or an empty result on failure
+                e.printStackTrace()
+                send(null)
+            }
 
             awaitClose {
 

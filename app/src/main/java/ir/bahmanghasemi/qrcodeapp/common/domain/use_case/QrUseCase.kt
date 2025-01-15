@@ -4,6 +4,6 @@ import ir.bahmanghasemi.qrcodeapp.feature_qrcode.domain.use_case.QrGeneratorUseC
 import ir.bahmanghasemi.qrcodeapp.feature_qrcode.domain.use_case.QrScanUseCase
 
 data class QrUseCase(
-    val qrScanner: QrScanUseCase,
-    val qrGenerator: QrGeneratorUseCase,
+    val qrScanUseCase: QrScanUseCase,
+    val qrGeneratorUseCase: QrGeneratorUseCase,
 )
