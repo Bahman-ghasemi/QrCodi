@@ -79,6 +79,8 @@ dependencies {
 
     // QrCode Scanner
     implementation(libs.play.services.code.scanner)
+    implementation ("com.google.mlkit:barcode-scanning:17.0.3")
+    implementation ("androidx.activity:activity-compose:1.7.2")
     implementation (libs.custom.qr.generator)
     implementation (libs.google.accompanist.drawablepainter)
 

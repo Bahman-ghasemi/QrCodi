@@ -33,7 +33,7 @@ import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.QrAction
 import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.QrGeneratorItem
 
 @Composable
-fun GenerationScreen(onClick: (QrAction) -> Unit) {
+fun GenerationScreen(modifier: Modifier = Modifier,onClick: (QrAction) -> Unit) {
     Column(Modifier.fillMaxWidth()) {
         LazyVerticalGrid(columns = GridCells.Fixed(count = 3)) {
             items(generationQrList()) {

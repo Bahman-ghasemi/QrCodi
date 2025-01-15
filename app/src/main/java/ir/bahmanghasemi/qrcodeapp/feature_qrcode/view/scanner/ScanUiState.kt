@@ -4,6 +4,7 @@ import com.github.alexzhirkevich.customqrgenerator.QrData
 
 data class ScanUiState(
     val result: QrData? = null,
+    val isFlashOn: Boolean = false,
     val errorMessage: String? = null,
     val isLoading: Boolean = false
 )

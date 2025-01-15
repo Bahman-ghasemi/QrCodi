@@ -42,8 +42,8 @@ object ScanModule {
 
     @Provides
     @ViewModelScoped
-    fun provideScannerRepository(scanner: GmsBarcodeScanner): ScanRepository {
-        return ScanRepositoryImpl(scanner)
+    fun provideScannerRepository(@ApplicationContext context: Context, scanner: GmsBarcodeScanner): ScanRepository {
+        return ScanRepositoryImpl(context, scanner)
     }
 
     @Provides
