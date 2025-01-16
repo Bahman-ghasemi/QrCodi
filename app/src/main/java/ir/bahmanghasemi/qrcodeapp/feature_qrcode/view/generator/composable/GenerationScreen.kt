@@ -25,23 +25,32 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.core.graphics.ColorUtils
 import ir.bahmanghasemi.qrcodeapp.R
 import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.QrAction
 import ir.bahmanghasemi.qrcodeapp.feature_qrcode.data.model.QrGeneratorItem
 
 @Composable
-fun GenerationScreen(modifier: Modifier = Modifier,onClick: (QrAction) -> Unit) {
-    Column(Modifier.fillMaxWidth()) {
+fun GenerationScreen(modifier: Modifier = Modifier, onClick: (QrAction) -> Unit) {
+    Column(
+        modifier
+            .fillMaxWidth()
+            .padding(12.dp)
+    ) {
+
         LazyVerticalGrid(columns = GridCells.Fixed(count = 3)) {
             items(generationQrList()) {
                 QrGridItem(it)
             }
         }
 
-        Text("Social", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = Color.Black)
+        Text(
+            "Social",
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+            color = Color.Black,
+            modifier = Modifier.padding(start = 16.dp, top = 16.dp)
+        )
 
         LazyVerticalGrid(columns = GridCells.Fixed(count = 4)) {
             items(socialQrList()) {
@@ -58,12 +67,12 @@ fun QrGridItem(item: QrGeneratorItem) {
         modifier = Modifier
             .fillMaxWidth()
             .aspectRatio(1f)
-            .padding(8.dp)
+            .padding(12.dp)
             .clip(RoundedCornerShape(16.dp))
             .clickable { item.onClick },
         shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(2.dp),
-        colors = CardDefaults.cardColors(item.tintColor)
+        colors = CardDefaults.cardColors(item.backgroundColor)
     )
     {
         Column(
@@ -75,16 +84,15 @@ fun QrGridItem(item: QrGeneratorItem) {
         ) {
             Icon(
                 modifier = Modifier
-                    .size(48.dp),
+                    .size(36.dp),
                 painter = painterResource(item.icon),
                 contentDescription = item.text,
                 tint = item.tintColor
             )
             Text(
                 text = item.text,
-                style = MaterialTheme.typography.titleMedium,
+                style = MaterialTheme.typography.bodyMedium,
                 color = item.tintColor,
-                fontWeight = FontWeight.Bold
             )
         }
     }
@@ -96,8 +104,8 @@ fun SocialGridItem(item: QrGeneratorItem) {
         modifier = Modifier
             .fillMaxWidth()
             .aspectRatio(1f)
-            .padding(8.dp)
-            .clip(RoundedCornerShape(16.dp))
+            .padding(12.dp)
+            .clip(CircleShape)
             .clickable { item.onClick },
         shape = CircleShape,
         elevation = CardDefaults.cardElevation(2.dp),
@@ -107,7 +115,7 @@ fun SocialGridItem(item: QrGeneratorItem) {
         Column(Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
             Icon(
                 modifier = Modifier
-                    .size(48.dp),
+                    .size(32.dp),
                 painter = painterResource(item.icon),
                 contentDescription = item.text,
                 tint = item.tintColor
@@ -129,19 +137,19 @@ private fun generationQrList(): List<QrGeneratorItem> {
             text = "Phone",
             icon = R.drawable.phone,
             tintColor = Color(0xff5ec1f3),
-            backgroundColor = Color(0xffeef9fe),
+            backgroundColor = Color(0xFFE6F5FF),
             onClick = { QrAction.Phone }),
         QrGeneratorItem(
             text = "Message",
             icon = R.drawable.messaging,
             tintColor = Color(0xff50db63),
-            backgroundColor = Color(0xffedfbef),
+            backgroundColor = Color(0xFFE9FAEB),
             onClick = { QrAction.Message }),
         QrGeneratorItem(
             text = "Text",
             icon = R.drawable.text,
             tintColor = Color(0xffbcbcbd),
-            backgroundColor = Color(0xfff4f4f5),
+            backgroundColor = Color(0xFFF3F3F3),
             onClick = { QrAction.Text }),
         QrGeneratorItem(
             text = "URL",
@@ -176,7 +184,7 @@ private fun socialQrList(): List<QrGeneratorItem> {
             text = "WhatsApp",
             icon = R.drawable.whatsapp,
             tintColor = Color(0xff49c170),
-            backgroundColor = Color(0xffedfbef),
+            backgroundColor = Color(0xFFD5FFD9),
             onClick = { QrAction.Whatsapp }),
         QrGeneratorItem(
             text = "Viber",
